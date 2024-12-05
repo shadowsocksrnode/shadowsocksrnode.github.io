@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://shadowsocksrnode.github.io/news/article-21773.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>restFul风格传参, 参数中带斜杠/问题</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="description" content="今天遇到一个restful接口路径传参问题，我的接口路径传参带斜杠，这样和restful地址就不一致了报404错误，然后看到这样一个解决方法，亲测可用。 @GetMapping("user/find/" />
+        <link href="__ADDON__/img/shadowsocksrnode/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="/assets/website/css/shadowsocksrnode/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="/assets/website/css/shadowsocksrnode/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/shadowsocksrnode/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/shadowsocksrnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/shadowsocksrnode/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/css/shadowsocksrnode/style.css">
+    <link rel="stylesheet" href="/assets/website/css/shadowsocksrnode/responsive.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NKMDX6FBLZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NKMDX6FBLZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--   preloder-->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+    <!--   header start -->
+    <nav id="navbar" class="navbar nav navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                                <span>ShadowsocksR Node</span>
+                            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> <i class="fa-solid fa-bars"></i> </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--   header end -->
+    <!--        breadcum start-->
+    <div class="breadcum">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 pt-5">
+                    <h1>restFul风格传参, 参数中带斜杠/问题</h1>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--        breadcum end-->
+    <!--    About start-->
+    <div class="container py-0 py-sm-5 my-5 about">
+        <div class="row">
+            <div class="col-md-9">
+                                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>今天遇到一个restful接口路径传参问题，我的接口路径传参带斜杠，这样和restful地址就不一致了报404错误，然后看到这样一个解决方法，亲测可用。</p> <pre><code>@GetMapping("user/find/by/{name}/**") public String getMapping(@PathVariable String name, HttpServletRequest request){ String path = request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE).toString(); String path2 = request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE).toString(); String args = new AntPathMatcher().extractPathWithinPattern(path2, path); return name + "/" + args; } </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-21296.htm">宠物医院仓鼠医药费报销吗多少（宠物医院仓鼠收费）</a></p>
+                                        <p>下一个：<a href="/news/article-21774.htm">SpringMVC获取请求参数笔记整理_java_</a></p>
+                                    </div>
+                            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-node-share.htm" title="ShadowsocksR Node节点订阅每天更新21.8M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20380.htm" title="养一只猫需要打什么针好（养一只猫要打疫苗吗,多少钱）">养一只猫需要打什么针好（养一只猫要打疫苗吗,多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-19463.htm" title="至德动物医院（至诚动物医院）">至德动物医院（至诚动物医院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-node-subscribe.htm" title="ShadowsocksR Node节点订阅每天更新21.7M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21295.htm" title="动物防疫疫苗中标公告公示时间（动物疫苗厂家电话）">动物防疫疫苗中标公告公示时间（动物疫苗厂家电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-node-subscribe.htm" title="ShadowsocksR Node节点订阅每天更新19.7M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-node-subscribe.htm" title="ShadowsocksR Node节点订阅每天更新21.4M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新21.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-node-share.htm" title="ShadowsocksR Node节点订阅每天更新18.3M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21774.htm" title="SpringMVC获取请求参数笔记整理_java_">SpringMVC获取请求参数笔记整理_java_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-subscribe-node.htm" title="ShadowsocksR Node节点订阅每天更新18.6M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+    <!--    About end-->
+        <!--    footer star -->
+    <div class="footer">
+        <div class="container">
+            <div class="row pt-3">
+                <div class="col-lg-12 text-center">
+                    <p class="mb-0">
+                        <a href="/">ShadowsocksR Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    footer end  -->
+    <script src="/assets/website/js/frontend/shadowsocksrnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/shadowsocksrnode/jquery.min.js"></script>
+    <!-- owl carousel-->
+    <script src="/assets/website/js/frontend/shadowsocksrnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/shadowsocksrnode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
