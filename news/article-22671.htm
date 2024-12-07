@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://shadowsocksrnode.github.io/news/article-21773.htm" />
+        <link rel="canonical" href="https://shadowsocksrnode.github.io/news/article-22671.htm" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>restFul风格传参, 参数中带斜杠/问题</title>
+    <title>PostMan传参给@RequestBody（接受前端参数）的方式</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta name="description" content="今天遇到一个restful接口路径传参问题，我的接口路径传参带斜杠，这样和restful地址就不一致了报404错误，然后看到这样一个解决方法，亲测可用。 @GetMapping("user/find/" />
+        <meta name="description" content="今天新接手一个项目框架，需要改造，但后台写好方法，准备用postman 测试时候，发现用以前传参方式不行，需要需要将json字符串转成json对象： 先上图吧,第一张：一般传参方式：  更改传参方式后" />
         <link href="__ADDON__/img/shadowsocksrnode/favicon.ico" rel="icon">
     <link rel="stylesheet" href="/assets/website/css/shadowsocksrnode/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="/assets/website/css/shadowsocksrnode/css2.css" rel="stylesheet">
@@ -74,7 +74,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pt-5">
-                    <h1>restFul风格传参, 参数中带斜杠/问题</h1>
+                    <h1>PostMan传参给@RequestBody（接受前端参数）的方式</h1>
                     <ul>
                         <li><a href="/">首页</a></li>
                         <li><a href="/news/">新闻资讯</a></li>
@@ -89,10 +89,10 @@
     <div class="container py-0 py-sm-5 my-5 about">
         <div class="row">
             <div class="col-md-9">
-                                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>今天遇到一个restful接口路径传参问题，我的接口路径传参带斜杠，这样和restful地址就不一致了报404错误，然后看到这样一个解决方法，亲测可用。</p> <pre><code>@GetMapping("user/find/by/{name}/**") public String getMapping(@PathVariable String name, HttpServletRequest request){ String path = request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE).toString(); String path2 = request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE).toString(); String args = new AntPathMatcher().extractPathWithinPattern(path2, path); return name + "/" + args; } </code></pre> </p></div> 			                <div class="clearfix"></div>
+                                  				  				  				<div id="content_views" class="htmledit_views"> <p>今天新接手一个项目框架，需要改造，但后台写好方法，准备用postman 测试时候，发现用以前传参方式不行，需要<strong>需要将json字符串转成json对象：</strong></p> <p><strong>先上图吧,第一张：一般传参方式：</strong></p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="267" src="http://img.555519.xyz/uploads/20230108/255b36e9f1e786c2ee155d85965366d3.jpg"></p> <p><strong>更改传参方式后，可以传参接受了：直接上图吧：</strong></p> <p><img decoding="async" alt="" class="has" height="523" src="http://img.555519.xyz/uploads/20230108/39cf99aa10534ab7713632c019001d64.jpg"></p> <p>注意箭头指的地方，参数格式转换成这样的就行。</p> <p>顺便上下后台controller接参数形式：</p> <p><img decoding="async" alt="" class="has" height="74" src="http://img.555519.xyz/uploads/20230108/5e3a3705d3b08f2f3c8fa610e7b711f7.jpg"></p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-21296.htm">宠物医院仓鼠医药费报销吗多少（宠物医院仓鼠收费）</a></p>
-                                        <p>下一个：<a href="/news/article-21774.htm">SpringMVC获取请求参数笔记整理_java_</a></p>
+                                        <p>上一个：<a href="/news/article-22209.htm">Spring Data Jpa 使用的hibernate 不支持 日期函数  to_char  的解决方案</a></p>
+                                        <p>下一个：<a href="/news/article-22673.htm">被猫爪子勾了一下出了一点血会死吗会感染吗（被猫爪子勾了一下出了一点血需要打疫苗吗）</a></p>
                                     </div>
                             </div>
             <div class="col-md-3">
@@ -102,16 +102,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-node-subscribe-links.htm" title="ShadowsocksR Node节点订阅每天更新19.3M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-node-subscribe-links.htm" title="ShadowsocksR Node节点订阅每天更新18.8M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19924.htm" title="欧式沙发靠垫怎么搭配(欧式沙发靠背垫图片)">欧式沙发靠垫怎么搭配(欧式沙发靠背垫图片)</a></li>
-                        <li class="py-2"><a href="/news/article-22209.htm" title="Spring Data Jpa 使用的hibernate 不支持 日期函数  to_char  的解决方案">Spring Data Jpa 使用的hibernate 不支持 日期函数  to_char  的解决方案</a></li>
-                        <li class="py-2"><a href="/news/article-19463.htm" title="至德动物医院（至诚动物医院）">至德动物医院（至诚动物医院）</a></li>
-                        <li class="py-2"><a href="/news/article-20839.htm" title="动物疫苗股票龙头股（动物疫苗股票龙头股排名）">动物疫苗股票龙头股（动物疫苗股票龙头股排名）</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-9-free-subscribe-node.htm" title="ShadowsocksR Node节点订阅每天更新18.6M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-18988.htm" title="动物医院英文缩写是什么意思 动物医院英文缩写是什么意思啊">动物医院英文缩写是什么意思 动物医院英文缩写是什么意思啊</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-node-subscribe.htm" title="ShadowsocksR Node节点订阅每天更新19.7M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-node-share-links.htm" title="ShadowsocksR Node节点订阅每天更新22.8M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe-links.htm" title="ShadowsocksR Node节点订阅每天更新19.8M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-node-share.htm" title="ShadowsocksR Node节点订阅每天更新22.8M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share.htm" title="ShadowsocksR Node节点订阅每天更新19.6M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-node-subscribe-links.htm" title="ShadowsocksR Node节点订阅每天更新19.3M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-node-subscribe.htm" title="ShadowsocksR Node节点订阅每天更新21.7M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-17-node-share-links.htm" title="ShadowsocksR Node节点订阅每天更新21.7M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-node-subscribe.htm" title="ShadowsocksR Node节点订阅每天更新21.1M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-node-share-links.htm" title="ShadowsocksR Node节点订阅每天更新22.8M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
