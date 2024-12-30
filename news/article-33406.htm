@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://shadowsocksrnode.github.io/news/article-32966.htm" />
+        <link rel="canonical" href="https://shadowsocksrnode.github.io/news/article-33406.htm" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>解决flex布局,子元素大小自适应问题</title>
+    <title>Spring动态代理中有什么方法不会被代理探究</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta name="description" content="在写uni-app时，发现子元素超出父元素高度范围，子元素高度会自适应，本以为是upx的问题，但是改为px还是自适应，然后又把flex注释掉发现问题解决了，问题就在flex布局。 父元素样式： /* " />
+        <meta name="description" content="JDK代理中  会代理对象中的所有方法，对于Object中继承的方法，会代理toString方法，但是不会代理equals，hashCode，getClass方法。  原因在于在Spring中的Jdk" />
         <link href="__ADDON__/img/shadowsocksrnode/favicon.ico" rel="icon">
     <link rel="stylesheet" href="/assets/website/css/shadowsocksrnode/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="/assets/website/css/shadowsocksrnode/css2.css" rel="stylesheet">
@@ -73,7 +73,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pt-5">
-                    <h1>解决flex布局,子元素大小自适应问题</h1>
+                    <h1>Spring动态代理中有什么方法不会被代理探究</h1>
                     <ul>
                         <li><a href="/">首页</a></li>
                         <li><a href="/news/">新闻资讯</a></li>
@@ -89,10 +89,10 @@
         <div class="row">
             <div class="col-md-9">
                                 <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
-                  				  				  				<div id="content_views" class="htmledit_views"> <p>在写uni-app时，发现子元素超出父元素高度范围，子元素高度会自适应，本以为是upx的问题，但是改为px还是自适应，然后又把flex注释掉发现问题解决了，问题就在flex布局。</p> <p><strong>父元素样式：</strong></p> <pre><code class="language-css">/* 宠物列表 */ .pet-list{ 	margin:10px 0px; 	width: 100%; 	height: 300px; 	padding: 0 10px 0 10px; 	display: flex; 	flex-direction: column; 	align-items: center; 	overflow-y: scroll; }</code></pre> <p><strong>子元素样式：</strong></p> <pre><code class="language-css">.pet-wrapper{ 	margin-bottom: 5px; 	width: 80%; 	height: 100px; 	background-color: #ffffff; 	border-radius: 10px; }</code></pre> <p>此时子元素数量较多，整体高度超出父元素高度时，子元素高度会自适应减小，要想保持子元素高度，需对子元素样式增加如下属性：</p> <p><img fetchpriority="high" decoding="async" alt="" height="227" src="http://img.555519.xyz/uploads3/20220609/833edc548035e5096a06f59cc11edb65.jpg"></p> </div> 			                <div class="clearfix"></div>
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>JDK代理中 <br /> 会代理对象中的所有方法，对于Object中继承的方法，会代理toString方法，但是不会代理equals，hashCode，getClass方法。 <br /> 原因在于在Spring中的JdkDynamicAopProxy类中的invoke方法执行时会判断</p> <pre class="prettyprint"><code class="hljs oxygene"> <span class="hljs-keyword">if</span> ((!this.equalsDefined) &amp;&amp; (AopUtils.isEqualsMethod(<span class="hljs-function"><span class="hljs-keyword">method</span>)))       <span class="hljs-comment">{         return Boolean.valueOf(equals(args[0]));       }</span>       <span class="hljs-title">if</span> <span class="hljs-params">((!this.hashCodeDefined)</span> &amp;&amp; <span class="hljs-params">(AopUtils.isHashCodeMethod(<span class="hljs-keyword">method</span>)</span>))       <span class="hljs-comment">{         return Integer.valueOf(hashCode());       }</span>       <span class="hljs-title">if</span> <span class="hljs-params">((!this.advised.opaque)</span> &amp;&amp; <span class="hljs-params">(<span class="hljs-keyword">method</span>.getDeclaringClass()</span>.<span class="hljs-title">isInterface</span><span class="hljs-params">()</span>) &amp;&amp;          <span class="hljs-params">(<span class="hljs-keyword">method</span>         .getDeclaringClass()</span>.<span class="hljs-title">isAssignableFrom</span><span class="hljs-params">(Advised.<span class="hljs-keyword">class</span>)</span>))       <span class="hljs-comment">{         return AopUtils.invokeJoinpointUsingReflection(this.advised, method, args);       }</span></span></code></pre> <p>所以在调用这三个方法时并不会被代理。</p> <p>CGLIB代理 <br /> 与JDK类似，都会进行方法判断，但是该代理的运行方式还不理解，判断方法在本类中并没有使用。应该是在别的类中调用，并根据返回值判断是否代理</p> <pre class="prettyprint"><code class="hljs oxygene"> <span class="hljs-keyword">if</span> (AopUtils.isFinalizeMethod(<span class="hljs-function"><span class="hljs-keyword">method</span>)) <span class="hljs-comment">{         CglibAopProxy.logger.debug("Found finalize() method - using NO_OVERRIDE");         return 2;       }</span>       <span class="hljs-title">if</span> <span class="hljs-params">((!this.advised.isOpaque()</span>) &amp;&amp; <span class="hljs-params">(<span class="hljs-keyword">method</span>.getDeclaringClass()</span>.<span class="hljs-title">isInterface</span><span class="hljs-params">()</span>) &amp;&amp;          <span class="hljs-params">(<span class="hljs-keyword">method</span>         .getDeclaringClass()</span>.<span class="hljs-title">isAssignableFrom</span><span class="hljs-params">(Advised.<span class="hljs-keyword">class</span>)</span>)) <span class="hljs-comment">{         if (CglibAopProxy.logger.isDebugEnabled()) {           CglibAopProxy.logger.debug("Method is declared on Advised interface: " + method);         }</span>         <span class="hljs-title">return</span> 4;</span>       }        <span class="hljs-keyword">if</span> (AopUtils.isEqualsMethod(<span class="hljs-function"><span class="hljs-keyword">method</span>)) <span class="hljs-comment">{         CglibAopProxy.logger.debug("Found 'equals' method: " + method);         return 5;       }</span>        <span class="hljs-title">if</span> <span class="hljs-params">(AopUtils.isHashCodeMethod(<span class="hljs-keyword">method</span>)</span>) <span class="hljs-comment">{         CglibAopProxy.logger.debug("Found 'hashCode' method: " + method);         return 6;</span></span></code></pre> <p>还有很多不理解，以后如果有更深理解，会更新的</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-32483.htm">济南宠物狗领养中心地址 济南宠物狗领养中心地址电话</a></p>
-                                        <p>下一个：<a href="/news/article-32968.htm">农大动物医院预约挂号（农业大学动物医院门诊时间）</a></p>
+                                        <p>上一个：<a href="/news/article-32968.htm">农大动物医院预约挂号（农业大学动物医院门诊时间）</a></p>
+                                        <p>下一个：<a href="/news/article-33408.htm">全国宠物粮食基地在哪里啊（中国宠物粮厂家批发网）</a></p>
                                     </div>
                             </div>
             <div class="col-md-3">
@@ -103,15 +103,15 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2"><a href="/free-nodes/2024-12-8-node-share-links.htm" title="ShadowsocksR Node节点订阅每天更新21.7M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-subscribe-node.htm" title="ShadowsocksR Node节点订阅每天更新19M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新19M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-23575.htm" title="宠物粮食加工厂加盟条件是什么呢 宠物粮食加工厂加盟条件是什么呢视频">宠物粮食加工厂加盟条件是什么呢 宠物粮食加工厂加盟条件是什么呢视频</a></li>
-                        <li class="py-2"><a href="/news/article-24446.htm" title="springboot接口如何控制版本？">springboot接口如何控制版本？</a></li>
-                        <li class="py-2"><a href="/news/article-20837.htm" title="动物疫苗行业排名前十名有哪些企业（动物疫苗企业名单）">动物疫苗行业排名前十名有哪些企业（动物疫苗企业名单）</a></li>
-                        <li class="py-2"><a href="/news/article-19462.htm" title="被猫抓出一点点血怎么办（被猫抓出了一点血怎么办）">被猫抓出一点点血怎么办（被猫抓出了一点血怎么办）</a></li>
-                        <li class="py-2"><a href="/news/article-28692.htm" title="违约养宠物还能退押金吗 违约养宠物还能退押金吗知乎">违约养宠物还能退押金吗 违约养宠物还能退押金吗知乎</a></li>
+                        <li class="py-2"><a href="/news/article-31073.htm" title="在我所在的城市有一家宠物医院用英语怎么说 在我所在的城市有一家宠物医院用英语怎么说">在我所在的城市有一家宠物医院用英语怎么说 在我所在的城市有一家宠物医院用英语怎么说</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-node-share.htm" title="ShadowsocksR Node节点订阅每天更新21.2M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新21.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-subscribe-node.htm" title="ShadowsocksR Node节点订阅每天更新23M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-32011.htm" title="一片枫叶的样子（一片枫叶的样子图片大全）">一片枫叶的样子（一片枫叶的样子图片大全）</a></li>
                         <li class="py-2"><a href="/news/article-29630.htm" title="成人怎么学兽医（没基础的成人想学兽医如何开始）">成人怎么学兽医（没基础的成人想学兽医如何开始）</a></li>
-                        <li class="py-2"><a href="/news/article-30587.htm" title="Cesium DrawCommand [1] 不谈地球 画个三角形">Cesium DrawCommand [1] 不谈地球 画个三角形</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-node-subscribe.htm" title="ShadowsocksR Node节点订阅每天更新18.7M/S免费节点订阅链接地址">ShadowsocksR Node节点订阅每天更新18.7M/S免费节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-node-subscribe-links.htm" title="ShadowsocksR Node节点订阅每天更新18.8M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20839.htm" title="动物疫苗股票龙头股（动物疫苗股票龙头股排名）">动物疫苗股票龙头股（动物疫苗股票龙头股排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-high-speed-nodes.htm" title="ShadowsocksR Node节点订阅每天更新21.1M/S免费节点订阅链接">ShadowsocksR Node节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26839.htm" title="layui form表单动态设置更新下拉框select 复选框checked  单选框radio选中项">layui form表单动态设置更新下拉框select 复选框checked  单选框radio选中项</a></li>
                     </ul>
     </div>
 </div>
